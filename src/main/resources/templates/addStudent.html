@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add student to DB</title>
+</head>
+<body>
+    <form th:action="@{/saveStudent}"
+          th:object="${studentForm}" method="POST">
+        Name:
+        <input type="text" th:field="*{name}"/>
+        Email:
+        <input type="text" th:field="*{email}"/>
+        Password:
+        <input type="password" th:field="*{password}"/>
+        Password again:
+        <input type="password" th:field="*{passwordAgain}"/>
+
+        <input type="submit" value="Confirm"/>
+    </form>
+
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+        ...
+    </div>
+
+</body>
+</html>

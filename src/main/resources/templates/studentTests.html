@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Student tests</title>
+</head>
+<body>
+    <p>Test history.</p>
+    <br/>
+    <td th:utext="'Student: ' + ${student.name}">...</td>
+    <table border="1">
+        <tr>
+            <th>Test start date</th>
+            <th>Test end date</th>
+            <th>Result</th>
+        </tr>
+        <tr th:each="studentTest:${studentTests}">
+            <td th:utext="${studentTest.testDate}">...</td>
+            <td th:utext="${studentTest.endDate}">...</td>
+            <td th:utext="${studentTest.testResult} + '%'">...</td>
+        </tr>
+    </table>
+    <br/>
+    <p><a th:href="'/studentTests?studentId='+${student.id} + '&amp;countOfQuestions=6'" th:text="'Start new test'">...</a></p>
+</body>
+</html>

@@ -39,7 +39,7 @@ public class StudentTestService {
         Student studentFromDB = studentRepository.findOne(student.getId());
         Assert.notNull(studentFromDB, "Student not found!");
 
-        Assert.isTrue(countOfQuestions > 0 && countOfQuestions < questionRepository.count(), "Invalid number of questions");
+        Assert.isTrue(countOfQuestions > 0 && countOfQuestions < questionRepository.count(), "Invalid count of questions");
 
         StudentTest studentTest = new StudentTest();
 

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Question</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:utext="'Question №' + ${question.id} + '    ' + ${question.textOfQuestion}" />
+    <tr th:each="answer:${answers}">
+        <td th:utext = "${answer.textOfAnswer} + '  ---  ' + ${answer.correct}">...</td>
+        <p></p>
+    </tr>
+    <p><a th:href="'/question/update?questionId=' + ${question.id}" th:text="'Update question'">...</a></p>
+</body>
+</html>

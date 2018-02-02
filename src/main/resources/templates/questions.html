@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Questions for test</title>
+</head>
+<body>
+
+    <p>To view the answers, select the question</p>
+    <table border="1">
+        <tr>
+            <th>Question</th>
+            <th>Text</th>
+        </tr>
+        <tr th:each ="question:${questions}">
+            <td><a th:href="'/answers?questionId='+${question.id}" th:text="'№:' + ${question.id}"></a></td>
+            <td th:utext = "${question.textOfQuestion}">...</td>
+        </tr>
+    </table>
+
+    <p><a href="/questions/add">Add question</a></p>
+</body>
+</html>

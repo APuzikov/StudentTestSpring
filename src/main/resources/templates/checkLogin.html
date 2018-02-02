@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Check login</title>
+</head>
+<body>
+    <form th:action="@{/checkStudent}"
+          th:object="${loginForm}" method="POST">
+        Email:
+        <input type="text" th:field="*{email}"/>
+        Password:
+        <input type="password" th:field="*{password}"/>
+        <input type="submit" value="Ok"/>
+    </form>
+
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+        ...
+    </div>
+</body>
+</html>

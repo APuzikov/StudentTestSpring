@@ -9,9 +9,6 @@ import ru.mera.spring.repository.StudentRepository;
 @SpringBootApplication
 public class SpringApp {
 
-    @Autowired
-    private StudentRepository studentRepository;
-
     public static void main(String[] args) {
         SpringApplication.run(SpringApp.class);
 

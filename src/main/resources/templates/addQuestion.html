@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Add question to DB</title>
+</head>
+<body>
+    <form th:action="@{/addQuestion}"
+          th:object="${questionForm}" method="POST">
+        Text of question:
+        <input type ="text" th:field="*{textOfQuestion}" th:value="'sdfsdfsdfsdfsdhgfhj'"/>
+        Difficulty level:
+        <select th:field="*{difficultyLevel}">
+            <option value="-1">--</option>
+            <option th:each="difficultyLevel:${difficultyLevels}"
+                    th:value="${difficultyLevel.id}"
+                    th:text="${difficultyLevel.name}"/>
+        </select>
+        <br/>
+        Add answers:
+        <table>
+            <tr th:each="answer, stat:${questionForm.answers}">
+                <td>
+                    <input type="text"
+                           th:field="*{answers[__${stat.index}__].textOfAnswer}"/>
+                    <input type="checkbox" th:field="*{answers[__${stat.index}__].correct}"/>
+                </td>
+                <td>
+                    <div th:if="${#lists.size(questionForm.answers)} > 1">
+                        <button type="submit" name="remove" th:value="${stat.index}">Remove</button>
+                    </div>
+                </td>
+            </tr>
+            <tr colspan="2">
+                <td><button type="submit" name="action"
+                            value="addAnswer">Add answer</button></td>
+            </tr>
+
+        </table>
+        <button type="submit" name="action" value="save">Save</button>
+    </form>
+
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+        ...
+    </div>
+</body>
+</html>
