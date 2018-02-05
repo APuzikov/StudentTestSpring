@@ -8,7 +8,7 @@
 <form th:action="@{/updateQuestion}"
       th:object="${questionForm}" method="POST">
     Text of question:
-    <input type ="text" th:field="*{textOfQuestion}" th:value="'sdfsdfsdfsdfsdhgfhj'"/>
+    <input type ="text" th:field="*{textOfQuestion}"/>
     Difficulty level:
     <select th:field="*{difficultyLevel}">
         <option value="-1">--</option>
@@ -23,7 +23,7 @@
             <td>
                 <input type="text"
                        th:field="*{answers[__${stat.index}__].textOfAnswer}"/>
-                <input type="checkbox" th:field="*{answers[__${stat.index}__].correct}"/>
+                <input type="checkbox" th:field="*{answers[__${stat.index}__].checked}"/>
             </td>
             <td>
                 <div th:if="${#lists.size(questionForm.answers)} > 1">

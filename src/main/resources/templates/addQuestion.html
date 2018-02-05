@@ -23,7 +23,7 @@
                 <td>
                     <input type="text"
                            th:field="*{answers[__${stat.index}__].textOfAnswer}"/>
-                    <input type="checkbox" th:field="*{answers[__${stat.index}__].correct}"/>
+                    <input type="checkbox" th:field="*{answers[__${stat.index}__].checked}"/>
                 </td>
                 <td>
                     <div th:if="${#lists.size(questionForm.answers)} > 1">

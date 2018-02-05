@@ -32,7 +32,7 @@ public class StudentTestService {
     @Autowired
     private StudentTestAnswerRepository studentTestAnswerRepository;
 
-    public void createStudentTest(Student student, int countOfQuestions){
+    public int createStudentTest(Student student, int countOfQuestions){
 
         Assert.notNull(student, "Student not found!");
 
@@ -70,6 +70,7 @@ public class StudentTestService {
 
             studentTestQuestionRepository.save(studentTestQuestion);
         }
+        return studentTest.getId();
     }
 
     public void updateStudentTest(StudentTest studentTest){

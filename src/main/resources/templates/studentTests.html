@@ -21,6 +21,12 @@
         </tr>
     </table>
     <br/>
+
     <p><a th:href="'/studentTests?studentId='+${student.id} + '&amp;countOfQuestions=6'" th:text="'Start new test'">...</a></p>
+
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+        ...
+    </div>
 </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Testing</title>
+</head>
+<body>
+    <p th:utext="'Testing of student: ' + ${studentTestForm.student.name}">...</p>
+    <p/>
+    <p th:utext="'Question №: ' + ${studentTestForm.numberOfQuestion} + '  of ' + ${studentTestForm.countOfQuestions}">...</p>
+    <p th:utext="'Select  ' + ${studentTestForm.countOfCorrect} + '  answer(s)'">...</p>
+    <p/>
+    <form th:action="@{/testing}"
+          th:object="${studentTestForm}" method="POST">
+        <tr th:each="answer, stat:${studentTestForm.answers}">
+            <input type="checkbox" th:field="*{answers[__${stat.index}__].checked}"/>
+            <input type="hidden" th:field="*{answers[__${stat.index}__].answerId}"/>
+            <td th:utext = "${answer.textOfAnswer}">...</td>
+            <p></p>
+        </tr>
+        <input type="hidden" th:field="${studentTestForm.student}"/>
+        <input type="hidden" th:field="${studentTestForm.studentTestId}"/>
+        <input type="hidden" th:field="${studentTestForm.countOfQuestions}"/>
+        <input type="hidden" th:field="${studentTestForm.numberOfQuestion}"/>
+        <input type="hidden" th:field="${studentTestForm.questionId}"/>
+        <p th:utext="'questionId - ' + ${studentTestForm.questionId}">...</p>
+
+
+        <div th:if="${studentTestForm.countOfQuestions} > ${studentTestForm.numberOfQuestion}">
+            <button type="submit" name="action" value="next">Next question</button>
+        </div>
+
+        <div th:if="${studentTestForm.numberOfQuestion} >= ${studentTestForm.countOfQuestions}">
+            <button type="submit" name="action" value="end">End test</button>
+        </div>
+
+    </form>
+</body>
+</html>

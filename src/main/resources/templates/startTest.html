@@ -5,6 +5,15 @@
     <title>Start new test</title>
 </head>
 <body>
-        <p>--------------------- New test -------------------</p>
+        <form th:action="@{/testing}"
+              th:object="${questionForm}" method="POST">
+            <p th:utext="'Question #: ' + ${questionForm.numberOfQuestion}"/>
+            <p th:utext="'Select ' + ${questionForm.countOfCorrect} + ' answer(s)'"/>
+            <tr th:each="answer:${questionForm.answers}">
+                <td th:utext = "${answer.textOfAnswer} + '  ---  ' + ${answer.checked}">...</td>
+                <input type="checkbox" th:field="*{answer.inputCorrect}"/>
+            </tr>
+
+        </form>
 </body>
 </html>

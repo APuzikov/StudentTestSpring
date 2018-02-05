@@ -7,7 +7,7 @@
 <body>
     <p th:utext="'Question №' + ${question.id} + '    ' + ${question.textOfQuestion}" />
     <tr th:each="answer:${answers}">
-        <td th:utext = "${answer.textOfAnswer} + '  ---  ' + ${answer.correct}">...</td>
+        <td th:utext = "${answer.textOfAnswer} + '  ---  ' + ${answer.checked}">...</td>
         <p></p>
     </tr>
     <p><a th:href="'/question/update?questionId=' + ${question.id}" th:text="'Update question'">...</a></p>

@@ -4,7 +4,7 @@ public class AnswerModel {
 
     private String textOfAnswer;
     private boolean correct;
-
+ 
     public String getTextOfAnswer() { return textOfAnswer; }
 
     public void setTextOfAnswer(String textOfAnswer) {

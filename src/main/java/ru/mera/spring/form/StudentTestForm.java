@@ -1,9 +1,11 @@
 package ru.mera.spring.form;
 
+import ru.mera.spring.entity.Student;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionForm {
+public class StudentTestForm {
 
     private String textOfQuestion;
     private int difficultyLevel;
@@ -13,7 +15,8 @@ public class QuestionForm {
     private int studentTestId;
     private int countOfQuestions;
     private int result;
-    private List<AnswerModel> answers = new ArrayList<>();
+    private Student student;
+    private List<AnswerTestModel> answers = new ArrayList<>();
     private List<DifficultyLevelModel> difficultyLevelModels = new ArrayList<>();
 
     public String getTextOfQuestion() { return textOfQuestion; }
@@ -30,11 +33,11 @@ public class QuestionForm {
         this.difficultyLevel = difficultyLevel;
     }
 
-    public List<AnswerModel> getAnswers() {
+    public List<AnswerTestModel> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(List<AnswerModel> answers) {
+    public void setAnswers(List<AnswerTestModel> answers) {
         this.answers = answers;
     }
 
@@ -74,6 +77,18 @@ public class QuestionForm {
         return questionId;
     }
 
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
     public int getNumberOfQuestion() {
         return numberOfQuestion;
     }
@@ -82,9 +97,6 @@ public class QuestionForm {
         this.numberOfQuestion = numberOfQuestion;
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
-    }
 
     public List<DifficultyLevelModel> getDifficultyLevelModels() {
         return difficultyLevelModels;

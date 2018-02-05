@@ -10,4 +10,5 @@ import java.util.List;
 public interface StudentTestQuestionRepository extends CrudRepository<StudentTestQuestion, Integer> {
 
     List<StudentTestQuestion> findByStudentTestId(int studentTestId);
+    StudentTestQuestion findByStudentTestIdAndQuestionId(int studentTestId, int questionId);
 }

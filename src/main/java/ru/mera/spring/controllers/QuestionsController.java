@@ -177,8 +177,6 @@ public class QuestionsController {
         return "updateQuestion";
     }
 
-
-
     private AnswerModel buildAnswerModel(Answer answer){
 
         AnswerModel answerModel = new AnswerModel();
